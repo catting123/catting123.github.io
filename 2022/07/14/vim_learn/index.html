@@ -1,0 +1,427 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vim常用快捷键 | Catting的博客</title><meta name="keywords" content="快捷键,Linux,Vim"><meta name="author" content="Catting"><meta name="copyright" content="Catting"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="为什么大佬操作非常快">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim常用快捷键">
+<meta property="og:url" content="https://catting123.github.io/2022/07/14/vim_learn/index.html">
+<meta property="og:site_name" content="Catting的博客">
+<meta property="og:description" content="为什么大佬操作非常快">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg">
+<meta property="article:published_time" content="2022-07-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-14T15:51:14.847Z">
+<meta property="article:author" content="Catting">
+<meta property="article:tag" content="快捷键">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg"><link rel="canonical" href="https://catting123.github.io/2022/07/14/vim_learn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vim常用快捷键',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-14 23:51:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-search"></i><span> 搜索</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Catting的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-search"></i><span> 搜索</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vim常用快捷键</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-14T15:51:14.847Z" title="更新于 2022-07-14 23:51:14">2022-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">936</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vim常用快捷键"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>刚接触vim是在计算机导论课上（寄倒），上学期上软件先导实践课又接触了一点点vim。由于我记性不太好，先记录一下常用快捷键吧。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>vi编辑器是所有Unix和Linux系统下标准的编辑器，相当于Windows的记事本一样，它工作在字符模式，由于不需要图形界面，所以效率高。vim是vi编辑器的升级版本，除了兼容vi的所有指令以外，还添加了许多重要的特性，例如支持正则搜索，语法高亮，对C语言的自动缩进等，有代码补全、编译及错误跳转等方便编程的功能。</p>
+<p>vim 键盘图：</p>
+<img src="https://www.runoob.com/wp-content/uploads/2015/10/classic1.gif" alt="vim键盘图" style="zoom:50%;" />
+
+<img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch1.gif" alt="vim键盘图zh" style="zoom:50%;" />
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>Linux命令行输入<code>vim [[/目录/]文件名]</code></p>
+<ul>
+<li>若目标文件不存在，则新建空文件并编辑。</li>
+<li>若目标文件已存在，则打开此文件并编辑。</li>
+</ul>
+<p>例如：<code>vim /tmp/a.txt</code></p>
+<h3 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h3><p>vi&#x2F;vim 共分为三种模式，分别是：</p>
+<ul>
+<li>命令模式（Command mode）</li>
+<li>输入模式（Insert mode）</li>
+<li>底线命令模式（Last line mode）</li>
+</ul>
+<img src="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png" alt="vim工作模式" style="zoom:50%;" />
+
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>一般模式进入或者退出编辑模式：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>当前光标后插入</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在光标所在行尾插入</td>
+</tr>
+<tr>
+<td>i</td>
+<td>当前光标前插入</td>
+</tr>
+<tr>
+<td>I</td>
+<td>在光标行首插入内容</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在当前光标下方插入空行</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在当前光标上方插入空行</td>
+</tr>
+<tr>
+<td>r</td>
+<td>取代光标所在的那一个字符一次</td>
+</tr>
+<tr>
+<td>R</td>
+<td>一直取代光标所在的文字，直到按下 Esc 为止</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>退出编辑模式，回到一般模式中</td>
+</tr>
+</tbody></table>
+<p>编辑模式：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[Ctrl] + [f]</td>
+<td align="left">屏幕向下移动一页，相当于 [Page Down]按键</td>
+</tr>
+<tr>
+<td>[Ctrl] + [b]</td>
+<td align="left">屏幕向上移动一页，相当于 [Page Up] 按键</td>
+</tr>
+<tr>
+<td>gg</td>
+<td align="left">跳转至首行</td>
+</tr>
+<tr>
+<td>G</td>
+<td align="left">跳转至尾行</td>
+</tr>
+<tr>
+<td>0</td>
+<td align="left">移动到该行行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td align="left">移动到该行行尾</td>
+</tr>
+<tr>
+<td>p</td>
+<td align="left">将已复制的数据粘贴在光标下一行</td>
+</tr>
+<tr>
+<td>P</td>
+<td align="left">将已复制的数据粘贴在光标上一行</td>
+</tr>
+<tr>
+<td>yy</td>
+<td align="left">复制当前光标所在行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td align="left">复制从光标所在行开始的n行</td>
+</tr>
+<tr>
+<td>y1G</td>
+<td align="left">复制游标所在行到首行</td>
+</tr>
+<tr>
+<td>yG</td>
+<td align="left">复制游标所在行到尾行</td>
+</tr>
+<tr>
+<td>y0</td>
+<td align="left">复制光标该行行首</td>
+</tr>
+<tr>
+<td>y$</td>
+<td align="left">复制光标该行行尾</td>
+</tr>
+<tr>
+<td>dd</td>
+<td align="left">剪切当前光标所在行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td align="left">剪切从光标所在行开始的n行</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td align="left">删除游标所在行到首行</td>
+</tr>
+<tr>
+<td>dG</td>
+<td align="left">删除游标所在行到尾行</td>
+</tr>
+<tr>
+<td>d0</td>
+<td align="left">删除光标到该行行首</td>
+</tr>
+<tr>
+<td>d$</td>
+<td align="left">删除光标到该行行尾</td>
+</tr>
+<tr>
+<td>nd$</td>
+<td align="left">删除从光标所在行开始的n行</td>
+</tr>
+<tr>
+<td>dw</td>
+<td align="left">删至词尾</td>
+</tr>
+<tr>
+<td>ndw</td>
+<td align="left">删除后n个词</td>
+</tr>
+<tr>
+<td>x</td>
+<td align="left">向后删除一个字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td align="left">向前删除一个字符</td>
+</tr>
+<tr>
+<td>u</td>
+<td align="left">撤销上一次修改，可以撤销多次</td>
+</tr>
+<tr>
+<td>[Ctrl] + [r]</td>
+<td align="left">重做上一个动作</td>
+</tr>
+<tr>
+<td>.小数点</td>
+<td align="left">重复上一个动作</td>
+</tr>
+</tbody></table>
+<p>末行模式：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:q</td>
+<td>不保存退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制不保存退出</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>将编辑的数据写入硬盘档案中保存</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存退出</td>
+</tr>
+<tr>
+<td>:wq!</td>
+<td>强制保存退出</td>
+</tr>
+<tr>
+<td>&#x2F;word</td>
+<td>向光标之下寻找一个名称为 word 的字符串</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标之上寻找一个名称为 word 的字符串</td>
+</tr>
+<tr>
+<td>:s&#x2F;old&#x2F;new&#x2F;g</td>
+<td>在当前行中查找到的所有字符串old替换为new</td>
+</tr>
+<tr>
+<td>:n1,n2s&#x2F;old&#x2F;new&#x2F;g</td>
+<td>在n1-n2行中查找到的所有字符串old替换为new</td>
+</tr>
+<tr>
+<td>:%s&#x2F;old&#x2F;new&#x2F;g</td>
+<td>在整个文件范围内查找替换</td>
+</tr>
+</tbody></table>
+<p>有些快捷键有规律，比如移动复制剪切，先整理再多练。</p>
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><p>命令行输入：</p>
+<ul>
+<li><code>vim --help</code>查看帮助。</li>
+<li><code>man vim</code>查看帮助手册。</li>
+<li><code>vimtutor </code>查看教程。</li>
+</ul>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/2020/editors/">编辑器(Vim)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">Linux vi&#x2F;vim | 菜鸟教程 (runoob.com)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/catting123">catting</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/catting123">https://github.com/catting123</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://catting123.github.io" target="_blank">Catting的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Vim/">Vim</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/16/git_learn/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120827089.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Git版本控制</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/13/japanese/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207121426873.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">如何在Windows10中设置Microsoft日语输入法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/18/linux_cmd/" title="Linux简单命令"><img class="cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120825637.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-18</div><div class="title">Linux简单命令</div></div></a></div><div><a href="/2022/07/08/pycharm_quick_key/" title="PyCharm常用快捷键"><img class="cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081805817.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-08</div><div class="title">PyCharm常用快捷键</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81Njc3My8zMzIzNw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Catting</div><div class="author-info__description">If you do, do your best!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/catting123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/catting123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:catting123@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wt1-71/" target="_blank" title="Zhihu"><i class="fab fa-brands fa-zhihu"></i></a><a class="social-icon" href="https://leetcode.cn/u/catting/" target="_blank" title="LeetCode"><i class="fas fa-solid fa-code"></i></a><a class="social-icon" href="https://space.bilibili.com/1076908343/" target="_blank" title="Bilibili"><i class="fab fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客。これは私のブログです。This is my blog.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-number">2.1.</span> <span class="toc-text">命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">三种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">2.3.</span> <span class="toc-text">快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9"><span class="toc-number">3.</span> <span class="toc-text">帮助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">友情链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/linux_cmd/" title="Linux简单命令"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120825637.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux简单命令"/></a><div class="content"><a class="title" href="/2022/07/18/linux_cmd/" title="Linux简单命令">Linux简单命令</a><time datetime="2022-07-17T16:00:00.000Z" title="发表于 2022-07-18 00:00:00">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/16/git_learn/" title="Git版本控制"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120827089.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git版本控制"/></a><div class="content"><a class="title" href="/2022/07/16/git_learn/" title="Git版本控制">Git版本控制</a><time datetime="2022-07-15T16:00:00.000Z" title="发表于 2022-07-16 00:00:00">2022-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/14/vim_learn/" title="Vim常用快捷键"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim常用快捷键"/></a><div class="content"><a class="title" href="/2022/07/14/vim_learn/" title="Vim常用快捷键">Vim常用快捷键</a><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/13/japanese/" title="如何在Windows10中设置Microsoft日语输入法"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207121426873.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Windows10中设置Microsoft日语输入法"/></a><div class="content"><a class="title" href="/2022/07/13/japanese/" title="如何在Windows10中设置Microsoft日语输入法">如何在Windows10中设置Microsoft日语输入法</a><time datetime="2022-07-12T16:00:00.000Z" title="发表于 2022-07-13 00:00:00">2022-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/sg_japan/" title="如何使用搜狗输入法输入日语"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207100809538.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用搜狗输入法输入日语"/></a><div class="content"><a class="title" href="/2022/07/12/sg_japan/" title="如何使用搜狗输入法输入日语">如何使用搜狗输入法输入日语</a><time datetime="2022-07-11T16:00:00.000Z" title="发表于 2022-07-12 00:00:00">2022-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: #74ccf4"><div id="footer-wrap"><div class="copyright">&copy;2022 By Catting</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welcome to my <a href="https://catting123.github.io">blog! </a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>怎样在Windows10下用Miniconda3+PyCharm搭建Tensorflow2环境 | Catting的博客</title><meta name="keywords" content="miniconda,PyCharm,Tensorflow"><meta name="author" content="Catting"><meta name="copyright" content="Catting"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="越挫越勇（woxiangbailan）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎样在Windows10下用Miniconda3+PyCharm搭建Tensorflow2环境">
+<meta property="og:url" content="https://catting123.github.io/2022/07/06/install_miniconda3/index.html">
+<meta property="og:site_name" content="Catting的博客">
+<meta property="og:description" content="越挫越勇（woxiangbailan）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207112228686.png">
+<meta property="article:published_time" content="2022-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-11T16:51:20.221Z">
+<meta property="article:author" content="Catting">
+<meta property="article:tag" content="miniconda">
+<meta property="article:tag" content="PyCharm">
+<meta property="article:tag" content="Tensorflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207112228686.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg"><link rel="canonical" href="https://catting123.github.io/2022/07/06/install_miniconda3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '怎样在Windows10下用Miniconda3+PyCharm搭建Tensorflow2环境',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-12 00:51:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-search"></i><span> 搜索</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207112228686.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Catting的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-search"></i><span> 搜索</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">怎样在Windows10下用Miniconda3+PyCharm搭建Tensorflow2环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-05T16:00:00.000Z" title="发表于 2022-07-06 00:00:00">2022-07-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-11T16:51:20.221Z" title="更新于 2022-07-12 00:51:20">2022-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E9%9A%8F%E7%AC%94/">学习随笔</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="怎样在Windows10下用Miniconda3+PyCharm搭建Tensorflow2环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="序（fei-hua）"><a href="#序（fei-hua）" class="headerlink" title="序（fei hua）"></a>序（fei hua）</h2><ul>
+<li>因为大一的时候误打误撞地参加了srdp项目，本来想着可以跟学长学姐们学习一下，我就打个杂什么的，但是我报名的这个项目百分之九十的任务都在我身上，心情复杂。因为这个完成这个项目计划的时间是一年，由于上学期摆烂，眼看着时间已经过了一半，如果暑假不弄的话，下学期也有可能没有时间搞，所以下定决心暑假要做完，否则下学期期末肯定交不了差。所以就开始了艰难的配环境之路。</li>
+<li>电脑里原本安装了Python 3.9和PyCharm，但是指导的学长说用Python 3.7和TensorFlow 2.7.0比较稳定。本来想着用华为云的虚拟机上下载安装，但是家里网络不太稳定，所以还是用自己的电脑下载安装吧。看到网上教程一般用Anaconda+Spyder比较多。开始的时候我下载了Anaconda3，按照网上的教程安装完之后，感觉有许多用不到或者不会有的包或工具，很占内存，我尝试用PyCharm创建conda虚拟环境的时候遇到了困难，上网找了好多资料也没有解决问题，然后我就把Anaconda3删了。看到网上有介绍可以安装Miniconda3，跟Anaconda3功能差不多，都是包管理工具，而且它只包含最基本Python和conda以及相关的必须的依赖项，比较适合我这种green hand，所以经过几次捣腾之后，终于配置好了Miniconda3+PyCharm搭建Tensorflow2环境。</li>
+</ul>
+<h2 id="壹·下载安装Miniconda3"><a href="#壹·下载安装Miniconda3" class="headerlink" title="壹·下载安装Miniconda3"></a>壹·下载安装Miniconda3</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>可以到Miniconda官网或者镜像网站下载，根据自己的电脑选择合适的版本，我下载的是Python 3.7版本对应的Miniconda3。</p>
+<ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda — Conda documentation</a></li>
+<li>镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">Index of &#x2F;anaconda&#x2F;miniconda&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a>，可以下载Miniconda3-3.7.x对应的版本。</li>
+</ul>
+<p>不禁想吐槽一下，Miniconda3才几十M，而Anaconda有几百M。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果英语好的话，可以直接看官方文档<a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/user-guide/install/windows.html">Installing on Windows — conda 4.13.0.post36+86447b6b documentation</a>安装，上面说得非常清楚。</p>
+<p>下载完之后，双击安装包，进入安装页面，有几个需要注意的地方。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120040170.png" alt="QQ截图20220710221215" style="zoom:50%;" />
+
+<p>如果没有特别需要，这里建议选择”Just Me”，如果选择”All Users”，安装过程中需要管理员权限，而且后面安装过程中有一个add PATH选项会被disabled。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120040629.png" alt="QQ截图20220710221238" style="zoom:50%;" />
+
+<p>一般默认装在C盘，但是我一般会把软件装在E盘，在E盘提前新建一个文件夹<code>Miniconda3</code>。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120041229.png" alt="QQ截图20220710221257" style="zoom:50%;" />
+
+<p>第一项是将Miniconda3添加到我的环境变量，第二项是将Miniconda3作为我默认的Python 3.7，如果不想手动配置环境变量的话可以勾选第一项，但是我没有勾选第一项。建议勾选第二项。选择完毕后点击<code>Install</code>，等待安装完成即可。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120041986.png" alt="QQ截图20220710221305" style="zoom:50%;" />
+
+<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><p>由于上面没有添加环境变量，所以要手动添加环境变量。</p>
+<p>打开高级系统设置（2种方式）</p>
+<ul>
+<li>右键单击此电脑，打开属性，在右旁栏选择高级系统设置，打开。</li>
+<li>或者直接点击左下方Windows图标搜索高级系统设置，打开。</li>
+</ul>
+<p>点击进入<code>环境变量</code>。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120041206.png" alt="QQ截图20220710224320" style="zoom:50%;" />
+
+<p>选择<code>系统变量</code>中的<code>Path</code>，点击<code>编辑</code>。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120041039.png" alt="QQ截图20220710224407" style="zoom: 33%;" />
+
+<p>添加3行参数：<code>miniconda3的安装目录</code>，<code>miniconda3的安装目录\Scripts</code>，<code>miniconda3的安装目录\Library\bin</code>，添加完成后点击确认。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120042324.png" alt="QQ截图20220710224542" style="zoom:50%;" />
+
+<p>为了确保环境变量生效，最好是要重启一下电脑。</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>重启完电脑后，打开cmd（2种方式）</p>
+<ul>
+<li>键盘快捷键win+r，输入cmd，回车enter。</li>
+<li>或者直接点击左下方Windows图标搜索cmd，打开。</li>
+</ul>
+<p>在cmd中输入<code>python</code>，如果出现<code>anaconda</code>的提示信息，表示安装成功，而且Python 3.7为默认的python版本。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120042014.png" alt="QQ截图20220710230200" style="zoom:50%;" />
+
+<p>输入<code>quit()</code>或者<code>exit()</code>退出python，然后输入<code>conda</code>，会出现如下提示，说明环境变量配置成功。如果输入<code>conda</code>后提示找不到指令，说明环境变量没有生效，需要重新检查一下环境变量的配置。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120044217.png" alt="QQ截图20220710230641" style="zoom:50%;" />
+
+<p>因为conda下载文件要用到国外的服务器，速度一般会比较慢，所以可以通过增加一个清华的镜像服务器来解决。打开Anaconda Promot (Miniconda3)，依次输入以下两条命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<h2 id="贰·创建虚拟环境"><a href="#贰·创建虚拟环境" class="headerlink" title="贰·创建虚拟环境"></a>贰·创建虚拟环境</h2><p>可以直接用命令行创建虚拟环境，也可以直接用PyCharm创建虚拟环境，我尝试了一下，还是觉得是直接用PyCharm创建虚拟环境比较方便。</p>
+<p>此处附上如何直接使用命令行创建并管理虚拟环境的链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32925500">Anaconda介绍、安装及使用教程 - 知乎 (zhihu.com)</a>。不管是Anaconda还是Miniconda，都是使用conda命令。</p>
+<p>下面说说如何直接用PyCharm创建虚拟环境吧。</p>
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><p>首先打开PyCharm，因为我电脑里原先没有虚拟环境，所以可以直接使用conda创建一个新的虚拟环境。</p>
+<ul>
+<li><code>Loctaion</code>填项目地址</li>
+<li><code>Python version</code>填python版本</li>
+<li><code>Conda executable</code>填<code>miniconda3安装目录\Scripts\conda.exe</code>，<code>.exe</code>是可执行文件后缀。</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120044380.png" alt="QQ截图20220711180259" style="zoom:50%;" />
+
+<p>点击<code>create</code>创建。</p>
+<h3 id="设置解释器"><a href="#设置解释器" class="headerlink" title="设置解释器"></a>设置解释器</h3><p>打开左上角<code>File</code>中的<code>Settings</code>，点击左侧<code>Project</code>中的<code>Python Interpreter</code>，可以设置python解释器，选择对应的<code>python.exe</code>，下面的<code>Package</code>中列出了这个解释器安装依赖的包。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120045049.png" alt="QQ截图20220711185136" style="zoom:50%;" />
+
+<h2 id="叁·安装TensorFlow2"><a href="#叁·安装TensorFlow2" class="headerlink" title="叁·安装TensorFlow2"></a>叁·安装TensorFlow2</h2><p>首先我是直接使用pip下载安装TensorFlow的，在cmd中输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tensorflow==2.7.0 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<p>这个命令是下载TensorFlow的CPU版本的，如果要下载GPU版本，需要将<code>tensorflow</code>改成<code>tensorflow-gpu</code>。<code>==</code>可以指定下载版本，TensorFlow 2.7.0版本和Python 3.7版本比较适配。默认情况下pip 下载时使用的是国外网站，一般速度比较慢，可以使用<code>-i 镜像地址</code>指定下载地址，换成国内镜像网站下载。</p>
+<p>conda命令和pip命令可以参见官方文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.conda.io/projects/conda/en/latest/commands/install.html">conda commands</a></li>
+<li><a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/cli/">pip commands</a></li>
+</ul>
+<p>还需要下载一些常用的包比如numpy，scipy，matplotlib等，在cmd中依次输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 numpy -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">pip3 scipy -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">pip3 matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<p>下载完成后，输入<code>pip list</code>可以看到已经安装完成的包。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120046626.png" alt="QQ截图20220711224106" style="zoom:50%;" />
+
+<p>输入<code>conda list</code>可以看到conda虚拟环境中安装完成的包。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120046686.png" alt="QQ截图20220711224043" style="zoom:50%;" />
+
+<p>在PyCharm的Settings中也可以看到。</p>
+<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120047502.png" alt="QQ截图20220712004741" style="zoom:67%;" />
+
+<h2 id="肆·测试"><a href="#肆·测试" class="headerlink" title="肆·测试"></a>肆·测试</h2><p>打开PyCharm，输入以下代码，快捷键ctrl+shift+F10运行，可能会出现一些警告，但是只要成功输出结果<code>tf.Tensor(10.0, shape=(), dtype=float32)</code>,就可以了。我再找找出现警告的原因。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建4个张量</span></span><br><span class="line">a = tf.constant(<span class="number">1.</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.</span>)</span><br><span class="line">c = tf.constant(<span class="number">3.</span>)</span><br><span class="line">w = tf.constant(<span class="number">4.</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:  <span class="comment"># 构建梯度环境</span></span><br><span class="line">    tape.watch([w])  <span class="comment"># 将w加入梯度跟踪列表</span></span><br><span class="line">    <span class="comment"># 构建计算过程</span></span><br><span class="line">    y = a * w ** <span class="number">2</span> + b * w + c</span><br><span class="line"><span class="comment"># 求导</span></span><br><span class="line">[dy_dw] = tape.gradient(y, [w])</span><br><span class="line"><span class="built_in">print</span>(dy_dw)</span><br></pre></td></tr></table></figure>
+
+<h2 id="尾-ji-tang"><a href="#尾-ji-tang" class="headerlink" title="尾(ji tang)"></a>尾(ji tang)</h2><ul>
+<li>俗话说：“万事开头难”，配环境的过程真的太艰辛了，整整弄了一天，可能还是我太菜了，所以还是要不断尝试，不断努力鸭！不踩坑，不摔跤，怎么知道过程的困难呢，大佬们应该也是这样过来的吧！撞墙不可怕，及时记下来，下次就有经验了，踩坑和摔跤的过程也是不断学习新知识和新技能的过程！</li>
+<li>虽然网上有很多教程，有一定的参考价值，但是每个人遇到的情况都不一样，还是需要培养自己解决问题的能力，其实很多时候官方文档说得很清楚，还是我英语水平太拉，还是要多多努力！<img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120050641.jpg" alt="QQ图片20220712005030" style="zoom: 33%;" /></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/catting123">catting</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/catting123">https://github.com/catting123</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://catting123.github.io" target="_blank">Catting的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/miniconda/">miniconda</a><a class="post-meta__tags" href="/tags/PyCharm/">PyCharm</a><a class="post-meta__tags" href="/tags/Tensorflow/">Tensorflow</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207112228686.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/07/08/pycharm_quick_key/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081805817.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PyCharm常用快捷键</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/08/pycharm_quick_key/" title="PyCharm常用快捷键"><img class="cover" src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081805817.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-08</div><div class="title">PyCharm常用快捷键</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81Njc3My8zMzIzNw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207081456682.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Catting</div><div class="author-info__description">If you do, do your best!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/catting123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/catting123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:catting123@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wt1-71/" target="_blank" title="Zhihu"><i class="fab fa-brands fa-zhihu"></i></a><a class="social-icon" href="https://leetcode.cn/u/catting/" target="_blank" title="LeetCode"><i class="fas fa-solid fa-code"></i></a><a class="social-icon" href="https://space.bilibili.com/1076908343/" target="_blank" title="Bilibili"><i class="fab fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客。これは私のブログです。This is my blog.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%EF%BC%88fei-hua%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">序（fei hua）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B9%C2%B7%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Miniconda3"><span class="toc-number">2.</span> <span class="toc-text">壹·下载安装Miniconda3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.3.</span> <span class="toc-text">添加环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">2.4.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%B0%C2%B7%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">贰·创建虚拟环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">3.1.</span> <span class="toc-text">创建虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">设置解释器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%81%C2%B7%E5%AE%89%E8%A3%85TensorFlow2"><span class="toc-number">4.</span> <span class="toc-text">叁·安装TensorFlow2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%82%86%C2%B7%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">肆·测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE-ji-tang"><span class="toc-number">6.</span> <span class="toc-text">尾(ji tang)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/linux_cmd/" title="Linux简单命令"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120825637.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux简单命令"/></a><div class="content"><a class="title" href="/2022/07/18/linux_cmd/" title="Linux简单命令">Linux简单命令</a><time datetime="2022-07-17T16:00:00.000Z" title="发表于 2022-07-18 00:00:00">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/16/git_learn/" title="Git版本控制"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120827089.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git版本控制"/></a><div class="content"><a class="title" href="/2022/07/16/git_learn/" title="Git版本控制">Git版本控制</a><time datetime="2022-07-15T16:00:00.000Z" title="发表于 2022-07-16 00:00:00">2022-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/14/vim_learn/" title="Vim常用快捷键"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207120826986.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim常用快捷键"/></a><div class="content"><a class="title" href="/2022/07/14/vim_learn/" title="Vim常用快捷键">Vim常用快捷键</a><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/13/japanese/" title="如何在Windows10中设置Microsoft日语输入法"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207121426873.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Windows10中设置Microsoft日语输入法"/></a><div class="content"><a class="title" href="/2022/07/13/japanese/" title="如何在Windows10中设置Microsoft日语输入法">如何在Windows10中设置Microsoft日语输入法</a><time datetime="2022-07-12T16:00:00.000Z" title="发表于 2022-07-13 00:00:00">2022-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/sg_japan/" title="如何使用搜狗输入法输入日语"><img src="https://cdn.jsdelivr.net/gh/catting123/picgo/img/202207100809538.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用搜狗输入法输入日语"/></a><div class="content"><a class="title" href="/2022/07/12/sg_japan/" title="如何使用搜狗输入法输入日语">如何使用搜狗输入法输入日语</a><time datetime="2022-07-11T16:00:00.000Z" title="发表于 2022-07-12 00:00:00">2022-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: #74ccf4"><div id="footer-wrap"><div class="copyright">&copy;2022 By Catting</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welcome to my <a href="https://catting123.github.io">blog! </a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
